@@ -22,9 +22,9 @@ os.system("sudo apt install -y git sudo bash make nano vim zsh tmux cmake binuti
 print("[*] useful apt tools downloaded")
 os.system("pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U pip && \
         pip2 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U pip && \
-        pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U jupyterlab ipython pycrypto pycryptodomex gmpy2 gmpy sympy numpy virtualenv requests flask angr formatstring mtp capstone  && \
+        pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U jupyterlab ipython pycrypto pycryptodomex gmpy2 gmpy sympy numpy virtualenv requests flask formatstring mtp capstone  && \
     pip3 install --user --no-cache-dir -U git+https://github.com/arthaud/python3-pwntools.git && \
-    pip2 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U jupyterlab ipython pycrypto pycryptodomex gmpy2 gmpy sympy numpy virtualenv requests flask angr pwntools ropgadget capstone")
+    pip2 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U jupyterlab ipython pycrypto pycryptodomex gmpy2 gmpy sympy numpy virtualenv requests flask pwntools ropgadget capstone")
 print("[*] useful python2/3 tools downloaded")
 os.system("run git clone https://github.com/pwndbg/pwndbg && cd pwndbg && ./setup.sh && cd .. && \
     git clone https://github.com/Ganapati/RsaCtfTool.git ~/RsaCtfTool && \
