@@ -2,7 +2,7 @@
 docker build -t hustcw/ctf_ubuntu_1804 - <<DOCKERFILE_EOF || exit 1
 from ubuntu:18.04
 run rm /etc/dpkg/dpkg.cfg.d/excludes
-run sed -i 's/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list \
+run sed -i 's/archive.ubuntu.com/mirrors.bfsu.edu.cn/g' /etc/apt/sources.list \
     && sed -i 's/# deb-src/deb-src/g' /etc/apt/sources.list
 
 run dpkg --add-architecture i386 && apt update && apt full-upgrade -y && apt clean
@@ -55,9 +55,15 @@ run wget https://bitbucket.org/pypy/pypy/downloads/pypy3.5-v7.0.0-linux64.tar.bz
     pypy3 -m ensurepip && \
     pypy3 -m pip install angr
 
+run git clone https://github.com/pwndbg/pwndbg
+workdir /home/ctf/pwndbg
+run ./setup.sh
+workdir /home/ctf
+
 run git clone https://github.com/Ganapati/RsaCtfTool.git ~/RsaCtfTool && \
     git clone https://github.com/scwuaptx/peda.git ~/peda && cp ~/peda/.inputrc ~/ && \
-    git clone https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb && cp ~/Pwngdb/.gdbinit ~/ && \
+    git clone https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb && cat ~/Pwngdb/.gdbinit >> ~/.gdbinit && \
+    sed -i 's?source ~/peda/peda.py?#source ~/peda/peda.py?g' .gdbinit && \
     sudo gem install one_gadget
 
 run sh -c "\$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true && \
