@@ -9,7 +9,7 @@ export LC_ALL=en_US.UTF-8
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 plugins=(
-  git autojump extract zsh-autosuggestions zsh-syntax-highlighting osx web-search docker
+  git autojump extract zsh-autosuggestions zsh-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -24,4 +24,3 @@ alias newt="tmux new -s"
 alias killt="tmux kill-session -t"
 alias help="tldr"
 alias lookip='curl cip.cc'
-alias active010editor="rm ~/.config/SweepScape/010\ Editor.ini"
