@@ -26,7 +26,7 @@ os.system("pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-
     pip3 install --user --no-cache-dir -U git+https://github.com/arthaud/python3-pwntools.git && \
     pip2 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U jupyterlab ipython pycrypto pycryptodomex gmpy2 gmpy sympy numpy virtualenv requests flask pwntools ropgadget capstone")
 print("[*] useful python2/3 tools downloaded")
-os.system("run git clone https://github.com/pwndbg/pwndbg && cd pwndbg && ./setup.sh && cd .. && \
+os.system("git clone https://github.com/pwndbg/pwndbg && cd pwndbg && ./setup.sh && cd .. && \
     git clone https://github.com/Ganapati/RsaCtfTool.git ~/RsaCtfTool && \
     git clone https://github.com/scwuaptx/peda.git ~/peda && cp ~/peda/.inputrc ~/ && \
     git clone https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb && cat ~/Pwngdb/.gdbinit >> ~/.gdbinit && \
@@ -35,7 +35,7 @@ os.system("run git clone https://github.com/pwndbg/pwndbg && cd pwndbg && ./setu
     sudo gem install one_gadget")
 print("[*] useful pwn and rsa tools downloaded")
 
-os.system("sh -c \"\$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\" || true && \
+os.system("sh -c \"$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\" || true && \
     curl https://raw.githubusercontent.com/Hustcw/ctf-docker/master/zshrc > ~/.zshrc && \
     curl https://raw.githubusercontent.com/Hustcw/ctf-docker/master/tmux.conf > ~/.tmux.conf && \
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
