@@ -143,6 +143,7 @@ cd ~ && \
 curl https://raw.githubusercontent.com/linkinlzm/ctf-docker/master/zshrc > ~/.zshrc
 echo "[*] oh-my-zsh installed"
 
-
+sudo snap install --classic code
+echo "[*] vscode installed"
 
 
