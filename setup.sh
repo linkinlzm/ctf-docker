@@ -1,16 +1,16 @@
 #!/bin/bash
 
-echo "[*] Setup Start\n\n"
+printf "[*] Setup Start\n\n"
 
 sudo sed -i 's/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
 sudo sed -i 's/# deb-src/deb-src/g' /etc/apt/sources.list
-echo "[*] apt source changed"
+printf "[*] apt source changed\n\n"
 
 sudo apt install -y locales && sudo apt clean
 sudo sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 sudo dpkg-reconfigure --frontend=noninteractive locales
 sudo update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
-echo "[*] locales updated"
+printf "[*] locales updated\n\n"
 
 sudo apt install -y git sudo bash make nano vim zsh tmux cmake binutils nasm gcc gdb g++ gcc-multilib \
     build-essential libc6-dev-i386 libc6-dbg libc6-dbg:i386 \
@@ -20,25 +20,25 @@ sudo apt install -y git sudo bash make nano vim zsh tmux cmake binutils nasm gcc
     ssh
 sudo apt-get source libc6-dev
 sudo apt clean
-echo "[*] tools installed"
+printf "[*] tools installed\n\n"
 
 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U pip
 pip3 install --upgrade pip
 pip2 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U pip
 pip2 install --upgrade pip
-echo "[*] pip updated"
+printf "[*] pip updated\n\n"
 
 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U jupyterlab ipython pycrypto pycryptodomex gmpy2 gmpy sympy numpy virtualenv requests flask formatstring mtp capstone --use-feature=2020-resolver
-pip3 install --user --no-cache-dir -U git+https://github.com/arthaud/python3-pwntools.git --use-feature=2020-resolver
+pip3 install --user --no-cache-dir -U git+https://github.com/arthaud/python3-pwntools.git
 pip2 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U jupyterlab ipython pycrypto pycryptodomex gmpy2 gmpy sympy numpy virtualenv requests flask pwntools ropgadget capstone --use-feature=2020-resolver
-echo "[*] python tools installed"
+printf "[*] python tools installed\n\n"
 
 cd ~
 curl -LROJ https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
 sudo bash install-release.sh
-read -p "Enter domain: \n" domain
-read -p "Enter UUID: \n" uuid
-read -p "Enter path: \n" path
+read -p "Enter domain: " domain
+read -p "Enter UUID: " uuid
+read -p "Enter path: " path
 sudo cat<<EOF>/usr/local/etc/v2ray/config.json
 {
   "log" : {
@@ -126,11 +126,11 @@ EOF
 
 sudo systemctl enable v2ray
 sudo systemctl start v2ray
-echo "[*] v2ray installed"
+printf "[*] v2ray installed\n\n"
 
 export https_proxy=http://127.0.0.1:7890 && export http_proxy=http://127.0.0.1:7890
 git config --global http.proxy http://127.0.0.1:7890
-echo "[*] proxy changed to 127.0.0.1:7890"
+printf "[*] proxy changed to 127.0.0.1:7890\n\n"
 
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true && \
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
@@ -141,9 +141,9 @@ cd ~/.oh-my-zsh/custom/plugins/autojump
 python install.py
 cd ~ && \
 curl https://raw.githubusercontent.com/linkinlzm/ctf-docker/master/zshrc > ~/.zshrc
-echo "[*] oh-my-zsh installed"
+printf "[*] oh-my-zsh installed\n\n"
 
 sudo snap install --classic code
-echo "[*] vscode installed"
+printf "[*] vscode installed\n\n"
 
 
