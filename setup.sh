@@ -128,6 +128,20 @@ sudo systemctl enable v2ray
 sudo systemctl start v2ray
 echo "[*] v2ray installed"
 
+export https_proxy=http://127.0.0.1:7890 && export http_proxy=http://127.0.0.1:7890
+git config --global http.proxy http://127.0.0.1:7890
+echo "[*] proxy changed to 127.0.0.1:7890"
+
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true && \
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
+git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions && \
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone git://github.com/wting/autojump.git ~/.oh-my-zsh/custom/plugins/autojump
+cd ~/.oh-my-zsh/custom/plugins/autojump
+python install.py
+cd ~ && \
+curl https://raw.githubusercontent.com/linkinlzm/ctf-docker/master/zshrc > ~/.zshrc
+echo "[*] oh-my-zsh installed"
 
 
 
