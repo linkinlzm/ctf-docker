@@ -23,9 +23,14 @@ sudo apt clean
 printf "[*] tools installed\n\n"
 
 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U pip
-pip3 install --upgrade pip
+# pip3 install --upgrade pip
+python3 -m pip install --upgrade pip
 pip2 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U pip
-pip2 install --upgrade pip
+# pip2 install --upgrade pip
+python -m pip install --upgrade pip
+
+pip3 --version
+pip2 --version
 printf "[*] pip updated\n\n"
 
 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -U jupyterlab ipython pycrypto pycryptodomex gmpy2 gmpy sympy numpy virtualenv requests flask formatstring mtp capstone --use-feature=2020-resolver
@@ -34,7 +39,6 @@ pip2 install -i https://pypi.tuna.tsinghua.edu.cn/simple --user --no-cache-dir -
 printf "[*] python tools installed\n\n"
 
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true
-chsh -s $(which zsh)
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions && \
 git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions && \
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
@@ -48,4 +52,4 @@ printf "[*] oh-my-zsh installed\n\n"
 sudo snap install --classic code
 printf "[*] vscode installed\n\n"
 
-
+chsh -s $(which zsh)
