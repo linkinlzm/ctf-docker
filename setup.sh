@@ -60,8 +60,9 @@ printf "[-] python tools installed\n\n"
 
 printf "[*] Install gdb tools\n"
 cd ~
-git clone https://github.com/pwndbg/pwndbg && cd pwndbg 
-sed 's/requirements.txt/& --use-feature=2020-resolver/' setup.sh > setup.sh
+git clone https://github.com/pwndbg/pwndbg && cd pwndbg
+mv setup.sh setup.sh.bak
+sed 's/requirements.txt/& --use-feature=2020-resolver/' setup.sh.bak > setup.sh && chmod +x setup.sh
 ./setup.sh && cd ..
 git clone https://github.com/scwuaptx/peda.git ~/peda && cp ~/peda/.inputrc ~/
 git clone https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb && cat ~/Pwngdb/.gdbinit >> ~/.gdbinit
