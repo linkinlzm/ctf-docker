@@ -7,7 +7,7 @@ sudo bash install-release.sh
 read -p "Enter domain: " domain
 read -p "Enter UUID: " uuid
 read -p "Enter path: " path
-sudo cat<<EOF>/usr/local/etc/v2ray/config.json
+sudo bash -c 'cat << EOF > /usr/local/etc/v2ray/config.json
 {
   "log" : {
     "loglevel": "warning"
@@ -90,7 +90,7 @@ sudo cat<<EOF>/usr/local/etc/v2ray/config.json
     ]
   }
 }
-EOF
+EOF'
 
 sudo systemctl enable v2ray
 sudo systemctl start v2ray
