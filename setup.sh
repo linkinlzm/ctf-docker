@@ -83,6 +83,8 @@ cd ~ && \
 curl https://raw.githubusercontent.com/linkinlzm/ctf-docker/master/zshrc > ~/.zshrc
 printf "[-] oh-my-zsh installed\n\n"
 
+curl https://raw.githubusercontent.com/linkinlzm/ctf-docker/master/tmux.conf > ~/.tmux.conf
+
 printf "[*] Install vscode\n"
 sudo snap install --classic code
 printf "[-] vscode installed\n\n"
