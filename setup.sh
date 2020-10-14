@@ -16,6 +16,7 @@ deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restr
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse
 deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse
 EOF'
+sudo apt-get update
 printf "[-] apt source changed\n\n"
 
 printf "[*] Setup locales\n"

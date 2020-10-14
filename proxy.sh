@@ -26,10 +26,10 @@ sudo bash -c 'cat << EOF > /usr/local/etc/v2ray/config.json
       "settings": {
         "vnext": [
           {
-            "address": "$domain",
+            "address": "",
             "port": 443,
             "users": [
-                {"id": "$uuid", "alterId" : 64, "level" : 1}
+                {"id": "", "alterId" : 64, "level" : 1}
             ]
           }
         ]
@@ -41,11 +41,11 @@ sudo bash -c 'cat << EOF > /usr/local/etc/v2ray/config.json
           "alpn" : [
             "http/1.1"
           ],
-          "serverName" : "$domain",
+          "serverName" : "",
           "allowInsecureCiphers" : true
         },
       "wsSettings" : {
-        "path" : "$path"
+        "path" : ""
       },
       "security" : "tls",
       "network" : "ws"
@@ -92,10 +92,16 @@ sudo bash -c 'cat << EOF > /usr/local/etc/v2ray/config.json
 }
 EOF'
 
+sudo sed -i 's?"address": "",?"address": "'$domain'",?g' /usr/local/etc/v2ray/config.json
+sudo sed -i 's?"serverName" : "",?"serverName" : "'$domain'",?g' /usr/local/etc/v2ray/config.json
+sudo sed -i 's?"id": "",?"id": "'$uuid'",?g' /usr/local/etc/v2ray/config.json
+sudo sed -i 's?"path" : ""?"path": "'$path'"?g' /usr/local/etc/v2ray/config.json
+
 sudo systemctl enable v2ray
 sudo systemctl start v2ray
 printf "[*] v2ray installed\n\n"
 
-export https_proxy=http://127.0.0.1:7890 && export http_proxy=http://127.0.0.1:7890
+printf "[*] command to change shell\n\n"
+echo "export https_proxy=http://127.0.0.1:7890 && export http_proxy=http://127.0.0.1:7890"
 git config --global http.proxy http://127.0.0.1:7890
-printf "[*] proxy changed to 127.0.0.1:7890\n\n"
+printf "[*] git proxy changed to 127.0.0.1:7890\n\n"
